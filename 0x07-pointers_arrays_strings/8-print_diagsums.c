@@ -1,15 +1,31 @@
 #include "main.h"
+#include "stdio.h"
+
 /**
- * set_string - sets the value of a pointer to a char
+ * print_diagsums- sum diagonal values
  *
- * @s: pointer to pointer to a char
+ * @a: pointer to array
  *
- * @to: the address to match
+ * @size: int
  *
- * Return: void
+ *Return: sum of two sides
+ *
  */
 
-void set_string(char **s, char *to)
+void print_diagsums(int *a, int size)
 {
-	*s = to;
+	int counter1, counter2, sum1, sum2;
+
+	sum1 = 0;
+	sum2 = 0;
+
+	for (counter1 = 0; counter1 < size; counter1++)
+	{
+		sum1 += a[(size + 1) * counter1];
+	}
+	for (counter2 = 0; counter2 < size; counter2++)
+	{
+		sum2 += a[(size - 1) * (counter2 + 1)];
+	}
+	printf("%d, %d\n", sum1, sum2);
 }
